@@ -1,14 +1,23 @@
+//dependencies
+const fs = require("fs");
 
 module.exports = function(app) {
   //routing
+
   app.get("/api/notes", function(req, res) {
     //TODO read db.json file
-    //TODO return all saved notes as JSOn
+    let rawData = fs.readFile("../../db/db.json");
+    let storedNotes = JSON.parse(rawData);
+    //TODO return all saved notes as JSON
+    console.log(storedNotes);
   });
 
   //API POST requests
   app.post("/api/notes", function(req, res) {
     //TODO receive new note to save on the request body, add it to db.json, then return new note to client
+    const newNote = req.body;
+    console.log(newNote);
+    res.json(newNote);
   });
 
   //TODO delete note
