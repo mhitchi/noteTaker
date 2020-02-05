@@ -10,10 +10,12 @@ module.exports = function(app) {
     // // UNSURE
     // res.json(db);
     //read db.json file
-    let rawData = fs.readFile("../../db/db.json");
-    let storedNotes = JSON.parse(rawData);
+
+    //TODO TRY ASYNC
+    // let rawData = fs.readFile("../../db/db.json");
+    // let storedNotes = JSON.parse(rawData);
     //TODO return all saved notes as JSON
-    console.log(storedNotes);
+    // console.log(storedNotes);
   });
 
   //API POST requests
