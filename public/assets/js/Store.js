@@ -11,7 +11,7 @@ const util = require("util");
 const readFileAsync = util.promisify(fs.readFile);
 
 
-class Note {
+class Store {
   constructor(title, content) {
     this.title = title;
     this.content = content;
@@ -55,8 +55,8 @@ class Note {
     //read db file
     return readFileAsync(`${process.cwd()}/db/db.json`, "utf8", function (err, data) {
         if (err) throw err;
-        index.renderNoteList(data);
-        console.log(notes);
+        //TODO 
+        //console.log(notes);
     });
   }
 
@@ -65,4 +65,4 @@ class Note {
   }
 }
 
-module.exports = Note;
+module.exports = Store;
