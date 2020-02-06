@@ -9,8 +9,9 @@ const router = require("express").Router();
     //TODO set up store
     //TODO call store
     const notes = new Store().listNote();
-    console.log(notes);
-    res.json(JSON.parse(notes));
+    console.log(`Getting notes: ${notes}`);
+    // res.json(JSON.parse(notes));
+    res.json(notes);
   });
 
   //API POST requests

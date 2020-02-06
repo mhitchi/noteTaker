@@ -18,7 +18,7 @@ class Note {
   }
 
   saveNote(newNote) {
-    return readFileAsync("../../../db/db.json", "utf8", (err, data) => {
+    return readFileAsync(`${process.cwd()}/db/db.json`, "utf8", (err, data) => {
       //TODO THROWING ERROR
       if (err) throw err;
 
@@ -34,7 +34,8 @@ class Note {
 
       //stringify
       //write notes to db.json
-      fs.writeFile("../../../db/db.json", notes, (err) => {
+      //TODO ENOENT GET PATH FOR DB.JSON
+      fs.writeFile(`${process.cwd()}/db/db.json`, notes, (err) => {
         if (err) throw err;
         console.log("file saved!");
       });
@@ -42,9 +43,10 @@ class Note {
   }
 
   listNote() {
+    //WORKING
     console.log("listNote called");
     //read db file
-    // return readFileAsync("../../../db/db.json", "utf8");
+    return readFileAsync(`${process.cwd()}/db/db.json`, "utf8");
   }
 
   deleteNote() {

@@ -5,8 +5,8 @@ const fs = require("fs");
 const app = express();
 
 //set up initial port
-//const PORT = process.env.PORT || 8080;
-const PORT = 8080;
+const PORT = process.env.PORT || 8080;
+//const PORT = 8080
 //set up express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
