@@ -13,7 +13,7 @@ const router = require("express").Router();
     // console.log(`Getting notes: ${stringyNotes}`);
     console.log(`Getting notes: ${savedNotes}`);
     // res.json(JSON.parse(notes));
-    res.json(notes);
+    res.json(savedNotes);
   });
 
   //API POST requests

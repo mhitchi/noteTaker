@@ -23,10 +23,14 @@ class Note {
       if (err) throw err;
 
       //get saved notes
-      let notes = JSON.parse(data);
+      //TRIED making notes into array and pushing to that
+      let notes = [];
+      notes.push(data);
+      console.log(notes);
 
       //give new note id
-      let id = notes.length;
+      //TODO id is always 1
+      let id = notes.length++;
       newNote.id = id;
 
       //stringify new note
@@ -49,7 +53,11 @@ class Note {
     //WORKING
     console.log("listNote called");
     //read db file
-    return readFileAsync(`${process.cwd()}/db/db.json`, "utf8");
+    return readFileAsync(`${process.cwd()}/db/db.json`, "utf8", function (err, data) {
+        if (err) throw err;
+        index.renderNoteList(data);
+        console.log(notes);
+    });
   }
 
   deleteNote() {
