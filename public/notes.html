@@ -39,44 +39,44 @@
   <script src="./assets/js/index.js"></script>
   <script>
   
-  function getNotes() {
-    const currentURL = window.location.origin;
-    //ajax call to get notes data
-    $.ajax({ url: currentURL+ "/notes", method: "GET" })
-      .then(function(storedNotes) {
-        //TODO PROBLEM returns entire notes.html instead of db objects
-        console.log(storedNotes);
+  // function getNotes() {
+  //   const currentURL = window.location.origin;
+  //   //ajax call to get notes data
+  //   $.ajax({ url: currentURL+ "/notes", method: "GET" })
+  //     .then(function(storedNotes) {
+  //       //TODO PROBLEM returns entire notes.html instead of db objects
+  //       console.log(storedNotes);
 
-        //make DOM elements
-        var notesList = $(".list-group");
-        var listItem = $("<li class='list-group-item mt-4'>");
-        listItem.append(
-          $("<h2>").text(title),
-        );
-        notesList.append(listItem);
-      });
-  }
+  //       //make DOM elements
+  //       var notesList = $(".list-group");
+  //       var listItem = $("<li class='list-group-item mt-4'>");
+  //       listItem.append(
+  //         $("<h2>").text(title),
+  //       );
+  //       notesList.append(listItem);
+  //     });
+  // }
 
-  //get save btn
-  const saveBtn = $(".save-note");
+  // //get save btn
+  // const saveBtn = $(".save-note");
 
-  //on hover, change to hand cursor
-  saveBtn.css('cursor','pointer');
+  // //on hover, change to hand cursor
+  // saveBtn.css('cursor','pointer');
 
-  //onclick, send to db
-  saveBtn.on("click", function() {
-    const newNote = {
-      title: $(".note-title").val().trim(),
-      content: $(".note-textarea").val().trim()
-    };
-    console.log(newNote);
-  });
+  // //onclick, send to db
+  // saveBtn.on("click", function() {
+  //   const newNote = {
+  //     title: $(".note-title").val().trim(),
+  //     content: $(".note-textarea").val().trim()
+  //   };
+  //   console.log(newNote);
+  // });
 
-  //TODO get new note btn
-  const newBtn = $(".new-note");
+  // //TODO get new note btn
+  // const newBtn = $(".new-note");
 
-  //on hover, change to hand cursor
-  newBtn.css('cursor','pointer');
+  // //on hover, change to hand cursor
+  // newBtn.css('cursor','pointer');
 
   </script>
 </body>
