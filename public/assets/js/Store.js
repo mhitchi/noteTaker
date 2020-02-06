@@ -5,9 +5,9 @@ const util = require("util");
 
 //reading from db.json
 
-//TODO make Notes class
-//TODO constructor
-//TODO read and write from file
+//make Notes class
+//constructor
+//read and write from file
 const readFileAsync = util.promisify(fs.readFile);
 
 
@@ -29,14 +29,17 @@ class Note {
       let id = notes.length;
       newNote.id = id;
 
-      //add new note to saved notes
-      notes.push(newNote);
+      //stringify new note
+      let stringyNote = JSON.stringify(newNote);
+
+      //TODO NOT WORKING add new note to saved notes
+      notes.push(stringyNote);
 
       //stringify
       //write notes to db.json
-      //TODO ENOENT GET PATH FOR DB.JSON
       fs.writeFile(`${process.cwd()}/db/db.json`, notes, (err) => {
         if (err) throw err;
+        //TODO NOT SAVING
         console.log("file saved!");
       });
     });

@@ -5,11 +5,13 @@ const router = require("express").Router();
 
   //routing
   router.get("/notes", function(req, res) {
-    //TODO return all saved notes as JSON
+    //return all saved notes as JSON
     //TODO set up store
-    //TODO call store
-    const notes = new Store().listNote();
-    console.log(`Getting notes: ${notes}`);
+    //call store
+    const savedNotes = new Store().listNote();
+    // let stringyNotes = JSON.stringify(notes);
+    // console.log(`Getting notes: ${stringyNotes}`);
+    console.log(`Getting notes: ${savedNotes}`);
     // res.json(JSON.parse(notes));
     res.json(notes);
   });
@@ -19,8 +21,8 @@ const router = require("express").Router();
     //TODO receive new note to save on the request body, add it to db.json, then return new note to client
     const newNote = req.body;
 
-    new Store().saveNote(newNote)
-    console.log(newNote);
+    new Store().saveNote(newNote);
+    console.log(`getting new note: ${newNote}`);
     res.json(newNote);
   });
 
